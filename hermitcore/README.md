@@ -3,7 +3,7 @@
 HermitCore is a lightweight POSIX-like Unikernel developped for HPC applications.
 
 In this readme, I summarise some informations I've gathered about this unikernel.
-You can find more information at this link : [https://github.com/hermitcore/libhermit]().
+You can find more information at this link : [](https://github.com/hermitcore/libhermit).
 
 # Installing HermitCore 
 
