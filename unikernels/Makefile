@@ -1,0 +1,3 @@
+
+hermitux :
+	cd hermitux && $(MAKE)
