@@ -60,5 +60,5 @@ cat $commandfile | while read prog; do
         fi
     done
     echo    
-    echo "$unikernel;$prog;10;$fail_count;" >> $datafile
+    echo "$unikernel;$prog;$n_execution;$fail_count;" >> $datafile
 done
