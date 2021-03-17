@@ -1,64 +1,47 @@
-#! /bin/bash 
+#! /bin/bash
 
-# This script execute given programs with selected unikernel.
-# It count the number of time the execution of the program fails.
+n_try=$1
+time_limit=$2
 
-unikernel=$1
-unikernel_dir=$2
+unikernel=$3
+unikernel_dir=$4
 
-commandfile=$3
-
-n_execution=10
-if [ -n "$4" ]; then
-    n_execution=$4
-fi
+prog=$5
+args=$6
 
 datafile=exec.csv
-echo "unikernel;program;number of execution; number of fails;" > $datafile
+
+if [ ! -e $datafile ]; then
+    echo "unikernel;program;number of executions;fails;timeout kills;" > $datafile
+fi
 
 logfile=exec.log
 
+echo -e "Redirecting program output to $logfile."
 
-echo -e "Redirecting programs output to $logfile."
+fail_count=$((0))
+timeout_count=$((0))
 
-cat $commandfile | while read prog; do
-    fail_count=$((0))
-    for ((i = 0; i < $n_execution; i++)); do
+for ((i = 0; i < $n_try; i++)); do
+    echo -e -n "\r Execution n°$i... "
+        ./timeout_run.sh $unikernel $unikernel_dir $time_limit $prog "$args" >> $logfile
+    return_code=$?
+    echo "=====================================================" >> $logfile
 
-        echo -e -n "\rExecuting $prog... $i"
-        return_code=0
-
-        case $unikernel in
-            "hermitcore")
-                $unikernel_dir/bin/proxy $prog > $logfile
-                return_code=$?
-                ;;
-
-            "hermitux")
-                HERMIT_ISLE=uhyve HERMIT_TUX=1 \
-                    $unikernel_dir/hermitux-kernel/prefix/bin/proxy \
-                    $unikernel_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
-                    $prog > $logfile
-                return_code=$?
-                ;;
-
-            "./")
-                ./$prog > $logfile
-                return_code=$?
-                ;;
-
-            *)
-                echo "Unknown unikernel : $unikernel."
-                echo "You can avoid using an unikernel by using the following command :"
-                echo "$0 ./ . <programs>"
-                exit
-                ;;
-        esac
-
-        if [ "$return_code" != "0" ]; then
+    case $return_code in 
+        "0")
+            # No problem, do not print anything.
+            ;;
+        "124" | "137")
+            echo "Timeout !"
+            timeout_count=$((timeout_count+1))
+            ;;
+        *)
+            echo "Execution failed."
             fail_count=$((fail_count+1))
-        fi
-    done
-    echo    
-    echo "$unikernel;$prog;$n_execution;$fail_count;" >> $datafile
+            ;;
+    esac
 done
+
+echo "$unikernel;$prog;$n_try;$fail_count;$timeout_count;" >> $datafile
+echo

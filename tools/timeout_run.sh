@@ -3,27 +3,33 @@
 unikernel=$1
 unikernel_dir=$2
 
-prog=$3
-args=$4
+time_limit=$3
+
+prog=$4
+args=$5
+
+timeout="timeout -s SIGKILL --foreground $time_limit"
 
 case $unikernel in
     "hermitcore")
-        $unikernel_dir/bin/proxy $prog $args
+        $timeout $unikernel_dir/bin/proxy $prog $args
         ;;
 
     "hermitux")
         HERMIT_ISLE=uhyve HERMIT_TUX=1 \
+            $timeout \
             $unikernel_dir/hermitux-kernel/prefix/bin/proxy \
             $unikernel_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
             $prog $args
         ;;
 
     "rumprun")
-        $unikernel_dir/rumprun/rumprun/bin/rumprun kvm -i -g '-nographic -vga none' $prog $args
+        $timeout \
+            $unikernel_dir/rumprun/rumprun/bin/rumprun kvm -i -g '-nographic -vga none' $prog $args
         ;;
 
     "./")
-        ./$prog $args
+        $timeout ./$prog $args
         ;;
 
     *)
