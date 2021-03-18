@@ -1,0 +1,6 @@
+hermitux /home/pierre/unikernels/hermitux 1 bots/hermitux-omp11-bin/fib.clang.omp-tasks
+hermitux /home/pierre/unikernels/hermitux 2 bots/hermitux-omp11-bin/fft.clang.omp-tasks
+hermitux /home/pierre/unikernels/hermitux 15 bots/hermitux-omp11-bin/health.clang.omp-tasks "-f bots/inputs/health/medium.input"
+hermitux /home/pierre/unikernels/hermitux 110 bots/hermitux-omp11-bin/nqueens.clang.omp-tasks
+hermitux /home/pierre/unikernels/hermitux 1 bots/hermitux-omp11-bin/strassen.clang.omp-tasks
+hermitux /home/pierre/unikernels/hermitux 8 bots/hermitux-omp11-bin/sparselu.clang.omp-tasks
