@@ -42,3 +42,5 @@ for cores in $cores_list; do
     done
     echo "===="
 done
+
+rm $tmp_file
