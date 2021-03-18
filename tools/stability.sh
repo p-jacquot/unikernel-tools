@@ -17,13 +17,14 @@ fi
 
 logfile=exec.log
 
+echo -e "Executing command : $prog $command"
 echo -e "Redirecting program output to $logfile."
 
 fail_count=$((0))
 timeout_count=$((0))
 
 for ((i = 0; i < $n_try; i++)); do
-    echo -e -n "\r Execution n°$i... "
+    echo -e -n "\r\tExecution n°$i... "
         ./timeout_run.sh $unikernel $unikernel_dir $time_limit $prog "$args" >> $logfile
     return_code=$?
     echo "=====================================================" >> $logfile
