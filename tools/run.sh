@@ -4,7 +4,10 @@ unikernel=$1
 unikernel_dir=$2
 
 prog=$3
-args=$4
+args=
+while [ -n "$4" ]; do
+    args="$args $4"
+done
 
 case $unikernel in
     "hermitcore")

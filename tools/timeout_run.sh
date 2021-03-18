@@ -6,7 +6,12 @@ unikernel_dir=$2
 time_limit=$3
 
 prog=$4
-args=$5
+args=
+
+while [ -n "$5" ]; do
+    args="$args $5"
+    shift
+done
 
 timeout="timeout -s SIGKILL --foreground $time_limit"
 
