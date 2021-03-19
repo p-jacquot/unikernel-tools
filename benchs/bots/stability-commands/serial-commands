@@ -1,0 +1,9 @@
+bots/bin/alignment.cc.serial -f bots/inputs/alignment/prot.100.aa
+bots/bin/fft.cc.serial
+bots/bin/fib.cc.serial
+bots/bin/floorplan.cc.serial -f bots/inputs/floorplan/input.20
+bots/bin/health.cc.serial -f bots/inputs/health/medium.input
+bots/bin/nqueens.cc.serial
+bots/bin/sort.cc.serial
+bots/bin/sparselu.cc.serial
+bots/bin/strassen.cc.serial
