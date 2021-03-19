@@ -1,0 +1,27 @@
+#config name
+LABEL=cc
+
+ENABLE_OMPSS=
+
+#compilers
+OMPSSC=
+OMPC=/opt/hermit/bin/x86_64-hermit-gcc -fopenmp
+CC=/opt/hermit/bin/x86_64-hermit-gcc
+OMPSSLINK=
+OMPLINK=/opt/hermit/bin/x86_64-hermit-gcc -fopenmp
+CLINK=/opt/hermit/bin/x86_64-hermit-gcc
+
+#compiler and linker flags
+
+OPT_FLAGS=-O3
+
+CC_FLAGS= 
+OMPC_FLAGS= 
+OMPSSC_FLAGS=
+OMPC_FINAL_FLAGS=
+OMPSSC_FINAL_FLAG=
+
+CLINK_FLAGS=
+OMPLINK_FLAGS=
+OMPSSLINK_FLAGS=
+
