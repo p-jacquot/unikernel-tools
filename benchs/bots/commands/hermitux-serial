@@ -1,5 +1,5 @@
-hermitux /root/hermitux 1 bots/hermitux-omp11-bin/fib.clang-11.serial
-hermitux /root/hermitux 15 bots/hermitux-omp11-bin/health.clang-11.serial -f bots/inputs/health/medium.input
-hermitux /root/hermitux 110 bots/hermitux-omp11-bin/nqueens.clang-11.serial
-hermitux /root/unikernels/hermitux 1 bots/hermitux-omp11-bin/strassen.clang-11.serial
-hermitux /root/unikernels/hermitux 8 bots/hermitux-omp11-bin/sparselu.clang-11.serial
+hermitux /root/hermitux 1 bots/hermitux-omp11-bin/fib.cc.serial
+hermitux /root/hermitux 15 bots/hermitux-omp11-bin/health.cc.serial -f bots/inputs/health/medium.input
+hermitux /root/hermitux 110 bots/hermitux-omp11-bin/nqueens.cc.serial
+hermitux /root/unikernels/hermitux 1 bots/hermitux-omp11-bin/strassen.cc.serial
+hermitux /root/unikernels/hermitux 8 bots/hermitux-omp11-bin/sparselu.cc.serial
