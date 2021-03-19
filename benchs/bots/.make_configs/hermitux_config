@@ -9,7 +9,7 @@ OMPC=clang-11 -fopenmp
 CC=clang-11 -fopenmp
 OMPSSLINK=
 OMPLINK=/root/hermitux/musl/obj/musl-gcc -fopenmp -static /root/omp/*.o 
-CLINK=/root/hermitux/musl/obj/musl-gcc -static
+CLINK=/root/hermitux/musl/obj/musl-gcc -static /root/omp/*.o
 
 #compiler and linker flags
 
