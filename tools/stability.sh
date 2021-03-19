@@ -7,7 +7,11 @@ unikernel=$3
 unikernel_dir=$4
 
 prog=$5
-args=$6
+args=
+while [ -n "$6" ]; do
+    args="$args $6"
+    shift
+done
 
 datafile=exec.csv
 
@@ -17,7 +21,7 @@ fi
 
 logfile=exec.log
 
-echo -e "Executing command : $prog $command"
+echo -e "Executing command : $prog $args"
 echo -e "Redirecting program output to $logfile."
 
 fail_count=$((0))

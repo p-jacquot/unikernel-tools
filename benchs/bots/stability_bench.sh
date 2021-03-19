@@ -1,53 +1,39 @@
 #! /bin/bash
 
-bin_location=$1
-n_cores=$2
+command_file=$1
+cpus_list=$2
+n_try=$3
+time_limit=$4
+unikernel=$5
+unikernel_dir=$6
+bin_location=$7
 
-unikernel=$3
-unikernel_dir=$4
+ln -s ../../tools/stability.sh stability.sh
+ln -s ../../tools/timeout_run.sh timeout_run.sh
 
-export HERMIT_CPUS=$n_cores
-export OMP_NUM_THREADS=$n_cores
+output_folder=$unikernel-stability-results
+command_file_name=$(basename $command_file)
 
-tools_location=../../tools
-
-health_input=health-medium.input
-cp $bin_location/../inputs/health/medium.input $health_input
-
-if [ ! -e results ]; then
-    mkdir results
+if [ ! -e $output_folder ]; then
+    mkdir $output_folder
 fi
 
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.serial
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks-tied
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks-if_clause
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks-if_clause-tied
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks-manual
-./$tools_location/stability.sh 50 1 $unikernel $unikernel_dir $bin_location/fib.clang-11.omp-tasks-manual-tied
+mv $bin_location bots/bin
 
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.serial "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks-tied "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks-if_clause "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks-if_clause-tied "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks-manual "-f $health_input"
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/health.clang-11.omp-tasks-manual-tied "-f $health_input"
+for cpu in $cpus_list; do
+    echo -e "Doing stability tests for $cpu cores.\n===="
+    export HERMIT_CPUS=$cpu
+    export OMP_NUM_THREADS=$cpu
+    csvfilename=$cpu-cores-$command_file_name.csv
+    logfilename=$cpu-cores-$command_file_name.log
+    cat $command_file | while read program; do
+        ./stability.sh $n_try $time_limit $unikernel $unikernel_dir $program
+    done
+    mv exec.csv $output_folder/$csvfilename
+    mv exec.log $output_folder/$logfilename
+done
 
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.serial
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks-tied
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks-if_clause
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks-if_clause-tied
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks-manual
-./$tools_location/stability.sh 50 15 $unikernel $unikernel_dir $bin_location/sparselu.clang-11.omp-tasks-manual-tied
+mv bots/bin $bin_location
 
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.serial
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks-tied
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks-if_clause
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks-if_clause-tied
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks-manual
-./$tools_location/stability.sh 50 0.5 $unikernel $unikernel_dir $bin_location/strassen.clang-11.omp-tasks-manual-tied
-
-rm $health_input
+rm stability.sh
+rm timeout_run.sh
