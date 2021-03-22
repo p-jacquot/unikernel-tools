@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-hermitux /root/hermitux 1 bots/hermitux-bin/fib.clang-11.serial
-hermitux /root/hermitux 15 bots/hermitux-bin/health.clang-11.serial -f bots/inputs/health/medium.input
-hermitux /root/hermitux 110 bots/hermitux-bin/nqueens.clang-11.serial
-hermitux /root/unikernels/hermitux 1 bots/hermitux-bin/strassen.clang-11.serial
-hermitux /root/unikernels/hermitux 8 bots/hermitux-bin/sparselu.clang-11.serial
-=======
-hermitux /root/hermitux 1 bots/hermitux-omp11-bin/fib.cc.serial
-hermitux /root/hermitux 15 bots/hermitux-omp11-bin/health.cc.serial -f bots/inputs/health/medium.input
-hermitux /root/hermitux 110 bots/hermitux-omp11-bin/nqueens.cc.serial
-hermitux /root/unikernels/hermitux 1 bots/hermitux-omp11-bin/strassen.cc.serial
-hermitux /root/unikernels/hermitux 8 bots/hermitux-omp11-bin/sparselu.cc.serial
->>>>>>> e4b703ccb4135815ace1f4a871ffac92db6d7ce8
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.serial
+hermitux /root/hermitux 15 bots/hermitux-bin/health.cc.serial -f bots/inputs/health/medium.input
+hermitux /root/hermitux 110 bots/hermitux-bin/nqueens.cc.serial
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.serial
+hermitux /root/hermitux 8 bots/hermitux-bin/sparselu.cc.serial
