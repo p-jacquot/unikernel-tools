@@ -1,5 +1,5 @@
-hermitux /root/hermitux 1 bots/hermitux-omp11-bin/fib.clang-11.omp-tasks
-hermitux /root/hermitux 15 bots/hermitux-omp11-bin/health.clang-11.omp-tasks -f bots/inputs/health/medium.input
-hermitux /root/hermitux 110 bots/hermitux-omp11-bin/nqueens.clang-11.omp-tasks
-hermitux /root/unikernels/hermitux 1 bots/hermitux-omp11-bin/strassen.clang-11.omp-tasks
-hermitux /root/unikernels/hermitux 8 bots/hermitux-omp11-bin/sparselu.clang-11.omp-tasks
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.clang-11.omp-tasks
+hermitux /root/hermitux 15 bots/hermitux-bin/health.clang-11.omp-tasks -f bots/inputs/health/medium.input
+hermitux /root/hermitux 110 bots/hermitux-bin/nqueens.clang-11.omp-tasks
+hermitux /root/unikernels/hermitux 1 bots/hermitux-bin/strassen.clang-11.omp-tasks
+hermitux /root/unikernels/hermitux 8 bots/hermitux-bin/sparselu.clang-11.omp-tasks
