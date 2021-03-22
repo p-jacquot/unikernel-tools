@@ -1,5 +1,5 @@
-hermitcore /opt/hermit 1 bots/hermitcore-bin/fib.hermit-gcc.omp-tasks
-hermitcore /opt/hermit 15 bots/hermitcore-bin/health.hermit-gcc.omp-tasks -f bots/inputs/health/medium.input
-hermitcore /opt/hermit 110 bots/hermitcore-bin/nqueens.hermit-gcc.omp-tasks
-hermitcore /opt/hermit 1 bots/hermitcore-bin/strassen.hermit-gcc.omp-tasks
-hermitcore /opt/hermit 8 bots/hermitcore-bin/sparselu.hermit-gcc.omp-tasks
+hermitcore /opt/hermit 1 bots/hermitcore-bin/fib.cc.omp-tasks
+hermitcore /opt/hermit 15 bots/hermitcore-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
+hermitcore /opt/hermit 110 bots/hermitcore-bin/nqueens.cc.omp-tasks
+hermitcore /opt/hermit 1 bots/hermitcore-bin/strassen.cc.omp-tasks
+hermitcore /opt/hermit 8 bots/hermitcore-bin/sparselu.cc.omp-tasks
