@@ -1,0 +1,5 @@
+./ . 1 bots/debian-bin/fib.cc.serial
+./ . 15 bots/debian-bin/health.cc.serial -f bots/inputs/health/medium.input
+./ . 110 bots/debian-bin/nqueens.cc.serial
+./ . 1 bots/debian-bin/strassen.cc.serial
+./ . 8 bots/debian-bin/sparselu.cc.serial
