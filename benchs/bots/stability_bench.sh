@@ -18,7 +18,7 @@ if [ ! -e $output_folder ]; then
     mkdir $output_folder
 fi
 
-mv $bin_location bots/bin
+cp $bin_location/* bots/bin/
 
 for cpu in $cpus_list; do
     echo -e "Doing stability tests for $cpu cores.\n===="
@@ -33,7 +33,7 @@ for cpu in $cpus_list; do
     mv exec.log $output_folder/$logfilename
 done
 
-mv bots/bin $bin_location
+rm bots/bin/* 
 
 rm stability.sh
 rm timeout_run.sh
