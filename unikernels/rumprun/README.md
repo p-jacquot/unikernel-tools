@@ -38,7 +38,7 @@ Clone the repo, and launch the script `./build-rr.sh`. This script will generate
 $ git clone https://github.com/rumpkernel/rumprun
 $ cd rumprun
 $ git submodule update --init
-$ CC=cc ./build-rr.sh
+$ CC=cc ./build-rr.sh hw
 ```
 
 Once the script has completed, you have build Rumprun ! Congratulation !
