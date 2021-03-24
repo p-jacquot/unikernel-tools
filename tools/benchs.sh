@@ -4,6 +4,18 @@ command_file=$1
 n=$2
 cores_list=$3
 
+if [ -z "$command_file" ] | [ -z "$n" ] | [ -z "$cores_list" ]; then
+    echo -e "Error : Missing argument."
+    echo -e "Command syntax : $0 <command_file> <number of measures> <cores_list>"
+    echo -e "Aborting script."
+    exit 1
+else if [ ! -e $command_file ]; then
+    echo -e "Error : $command_file file does not exists."
+    echo -e "Aborting script."
+    exit 1
+fi
+fi
+
 command_file_name=$(basename $command_file)
 output_folder=results-$command_file_name
 tmp_file=tmp
