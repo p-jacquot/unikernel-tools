@@ -8,8 +8,8 @@ OMPSSC=
 OMPC=clang-11 -fopenmp
 CC=clang-11 -fopenmp
 OMPSSLINK=
-OMPLINK=clang-11 -fopenmp -L/usr/local/lib
-CLINK=clang-11 -L/usr/local/lib
+OMPLINK=clang-11 -fopenmp -liomp5 -L/usr/local/lib -R/usr/local/lib
+CLINK=clang-11 -fopenmp -liomp5 -L/usr/local/lib -R/usr/local/lib
 
 #compiler and linker flags
 
