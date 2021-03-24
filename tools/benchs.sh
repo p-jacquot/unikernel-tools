@@ -1,23 +1,29 @@
 #! /bin/bash
 
 command_file=$1
-n=$2
-cores_list=$3
+destination_folder=$2
+n=$3
+cores_list=$4
 
-if [ -z "$command_file" ] | [ -z "$n" ] | [ -z "$cores_list" ]; then
+if [ -z "$command_file" ] | [ -z "$destination_folder" ] | [ -z "$n" ] | [ -z "$cores_list" ]; then
     echo -e "Error : Missing argument."
-    echo -e "Command syntax : $0 <command_file> <number of measures> <cores_list>"
+    echo -e "Command syntax : $0 <command_file> <destination_folder> <number of measures> <cores_list>"
     echo -e "Aborting script."
     exit 1
 else if [ ! -e $command_file ]; then
     echo -e "Error : $command_file file does not exists."
     echo -e "Aborting script."
     exit 1
+else if [ ! -d $destination_folder ]; then
+    echo -e "Error : $destination_folder folder does not exists, or is not a directory."
+    echo -e "Aborting script."
+    exit 1
+fi
 fi
 fi
 
 command_file_name=$(basename $command_file)
-output_folder=results-$command_file_name
+output_folder=$destination_folder/results-$command_file_name
 tmp_file=tmp
 
 if [ -e $output_folder ]; then
