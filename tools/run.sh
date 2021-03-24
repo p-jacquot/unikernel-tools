@@ -16,6 +16,7 @@ case $unikernel in
 
     "hermitux")
         HERMIT_ISLE=uhyve HERMIT_TUX=1 \
+            HERMIT_SECCOMP=0 HERMIT_DEBUG=0 HERMIT_MEM=4G \
             $unikernel_dir/hermitux-kernel/prefix/bin/proxy \
             $unikernel_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
             $prog $args
