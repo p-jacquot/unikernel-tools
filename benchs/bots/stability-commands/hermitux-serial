@@ -1,0 +1,9 @@
+hermitux /root/hermitux 10 bots/hermitux-bin/alignment.cc.serial -f bots/inputs/alignment/prot.100.aa
+hermitux /root/hermitux 20 bots/hermitux-bin/fft.cc.serial
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.serial
+hermitux /root/hermitux 30 bots/hermitux-bin/floorplan.cc.serial -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 30 bots/hermitux-bin/health.cc.serial -f bots/inputs/health/medium.input
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.serial
+hermitux /root/hermitux 60 bots/hermitux-bin/sort.cc.serial
+hermitux /root/hermitux 20 bots/hermitux-bin/sparselu.cc.serial
+hermitux /root/hermitux 15 bots/hermitux-bin/strassen.cc.serial

@@ -1,0 +1,42 @@
+hermitux /root/hermitux 30 bots/hermitux-bin/alignment.cc.for-omp-tasks -f bots/inputs/alignment/prot.100.aa
+hermitux /root/hermitux 30 bots/hermitux-bin/alignment.cc.for-omp-tasks-tied -f bots/inputs/alignment/prot.100.aa
+hermitux /root/hermitux 30 bots/hermitux-bin/alignment.cc.single-omp-tasks -f bots/inputs/alignment/prot.100.aa
+hermitux /root/hermitux 30 bots/hermitux-bin/alignment.cc.single-omp-tasks-tied -f bots/inputs/alignment/prot.100.aa
+hermitux /root/hermitux 20 bots/hermitux-bin/fft.cc.omp-tasks
+hermitux /root/hermitux 20 bots/hermitux-bin/fft.cc.omp-tasks-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks-if_clause
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks-if_clause-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks-manual
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks-manual-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks-tied
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks-if_clause -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks-if_clause-tied -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks-manual -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks-manual-tied -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/floorplan.cc.omp-tasks-tied -f bots/inputs/floorplan/input.20
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks-if_clause -f bots/inputs/health/medium.input
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks-if_clause-tied -f bots/inputs/health/medium.input
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks-manual -f bots/inputs/health/medium.input
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
+hermitux /root/hermitux 20 bots/hermitux-bin/health.cc.omp-tasks-tied -f bots/inputs/health/medium.input
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks-if_clause
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks-if_clause-tied
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks-manual
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks-manual-tied
+hermitux /root/hermitux 60 bots/hermitux-bin/nqueens.cc.omp-tasks-tied
+hermitux /root/hermitux 30 bots/hermitux-bin/sort.cc.omp-tasks
+hermitux /root/hermitux 30 bots/hermitux-bin/sort.cc.omp-tasks-tied
+hermitux /root/hermitux 10 bots/hermitux-bin/sparselu.cc.for-omp-tasks
+hermitux /root/hermitux 10 bots/hermitux-bin/sparselu.cc.for-omp-tasks-tied
+hermitux /root/hermitux 10 bots/hermitux-bin/sparselu.cc.single-omp-tasks
+hermitux /root/hermitux 10 bots/hermitux-bin/sparselu.cc.single-omp-tasks-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks-if_clause
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks-if_clause-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks-manual
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks-manual-tied
+hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks-tied

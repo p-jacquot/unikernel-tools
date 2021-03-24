@@ -1,0 +1,9 @@
+hermitcore /opt/hermit 10 bots/hermitcore-bin/alignment.cc.serial -f bots/inputs/alignment/prot.100.aa
+hermitcore /opt/hermit 20 bots/hermitcore-bin/fft.cc.serial
+hermitcore /opt/hermit 1 bots/hermitcore-bin/fib.cc.serial
+hermitcore /opt/hermit 30 bots/hermitcore-bin/floorplan.cc.serial -f bots/inputs/floorplan/input.20
+hermitcore /opt/hermit 30 bots/hermitcore-bin/health.cc.serial -f bots/inputs/health/medium.input
+hermitcore /opt/hermit 60 bots/hermitcore-bin/nqueens.cc.serial
+hermitcore /opt/hermit 60 bots/hermitcore-bin/sort.cc.serial
+hermitcore /opt/hermit 20 bots/hermitcore-bin/sparselu.cc.serial
+hermitcore /opt/hermit 15 bots/hermitcore-bin/strassen.cc.serial
