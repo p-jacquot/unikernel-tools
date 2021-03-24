@@ -1,12 +1,19 @@
 #! /bin/bash
 
 command_file_lists=$1
-cpus_list=$2
-n_try=$3
+destination_folder=$2
+cpus_list=$3
+n_try=$4
 
-if (( $# < 3)); then
+if (( $# < 4)); then
     echo -e "Missing arguments."
-    echo -e "Command syntax : $0 <command_files_list> <cpus_list> <number of try>"
+    echo -e "Command syntax : $0 <command_files_list> <destination_folder> <cpus_list> <number of try>"
+    echo -e "Aborting script."
+    exit 1
+fi
+
+if [ ! -d $destination_folder ]; then
+    echo -e "Error :$destination_folder does not exists, or is not a directory."
     echo -e "Aborting script."
     exit 1
 fi
@@ -23,7 +30,7 @@ for command_file in $command_file_lists; do
     else
         echo -e "Executing commands from : $command_file\n\n"
         command_file_name=$(basename $command_file)
-        output_folder=$command_file_name-stability-results
+        output_folder=$destination_folder/$command_file_name-stability-results
 
         if [ ! -e $output_folder ]; then
             mkdir $output_folder
