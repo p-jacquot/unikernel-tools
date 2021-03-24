@@ -4,6 +4,19 @@ command_file=$1
 cpus_list=$2
 n_try=$3
 
+if (( $# < 3)); then
+    echo -e "Missing arguments."
+    echo -e "Command syntax : $0 <command_file> <cpus_list> <number of try>"
+    echo -e "Aborting script."
+    exit 1
+fi
+
+if [ ! -e $command_file ]; then
+    echo -e "$command_file file does not exists."
+    echo -e "Aborting script."
+    exit 1
+fi
+
 ln -s ../../tools/stability.sh stability.sh
 ln -s ../../tools/timeout_run.sh timeout_run.sh
 
