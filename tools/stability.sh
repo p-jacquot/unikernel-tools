@@ -1,10 +1,10 @@
 #! /bin/bash
 
 n_try=$1
-time_limit=$2
 
-unikernel=$3
-unikernel_dir=$4
+unikernel=$2
+unikernel_dir=$3
+time_limit=$4
 
 prog=$5
 args=
