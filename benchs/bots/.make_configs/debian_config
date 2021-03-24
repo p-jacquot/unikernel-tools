@@ -1,0 +1,27 @@
+#config name
+LABEL=cc
+
+ENABLE_OMPSS=
+
+#compilers
+OMPSSC=
+OMPC=clang-11 -fopenmp
+CC=clang-11 -fopenmp
+OMPSSLINK=
+OMPLINK=clang-11 -fopenmp -L/usr/local/lib
+CLINK=clang-11 -L/usr/local/lib
+
+#compiler and linker flags
+
+OPT_FLAGS=-O3
+
+CC_FLAGS= 
+OMPC_FLAGS= 
+OMPSSC_FLAGS=
+OMPC_FINAL_FLAGS=
+OMPSSC_FINAL_FLAG=
+
+CLINK_FLAGS=
+OMPLINK_FLAGS=
+OMPSSLINK_FLAGS=
+
