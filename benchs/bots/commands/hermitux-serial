@@ -2,4 +2,4 @@ hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.serial
 hermitux /root/hermitux 15 bots/hermitux-bin/health.cc.serial -f bots/inputs/health/medium.input
 hermitux /root/hermitux 110 bots/hermitux-bin/nqueens.cc.serial
 hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.serial
-hermitux /root/hermitux 8 bots/hermitux-bin/sparselu.cc.serial
+hermitux /root/hermitux 15 bots/hermitux-bin/sparselu.cc.serial
