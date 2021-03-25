@@ -1,4 +1,4 @@
-TARGET_DIR=results
+TARGET_DIR ?=.
 
 all: hermitcore hermitux debian
 
@@ -39,8 +39,8 @@ clean:
 	rm -rf bots
 
 benchs : all
-	./bots_benchs.sh "commands/*-serial" $(TARGET_DIR) 50 1
-	./bots_benchs.sh "commands/hermitux commands/hermitcore" $(TARGET_DIR) 50 "2 4 8 16" 
+	./bots_benchs.sh "commands/*-serial" $(TARGET_DIR) 1 1
+	./bots_benchs.sh "commands/hermitux commands/hermitcore" $(TARGET_DIR) 1 "2 4 8 16" 
 
 stability : all
 	./stability_bench.sh stability-commands/serial-commands $(TARGET_DIR) 20 1
