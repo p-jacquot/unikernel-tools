@@ -2,8 +2,8 @@
 
 command_file_lists=$1
 destination_folder=$2
-cpus_list=$3
-n_try=$4
+n_try=$3
+cpus_list=$4
 
 if (( $# < 4)); then
     echo -e "Missing arguments."
