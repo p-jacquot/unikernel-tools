@@ -16,12 +16,12 @@
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks-manual -f bots/inputs/floorplan/input.20
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks-manual-tied -f bots/inputs/floorplan/input.20
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks-tied -f bots/inputs/floorplan/input.20
-./ . 20 bots/debian-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
-./ . 20 bots/debian-bin/health.cc.omp-tasks-if_clause -f bots/inputs/health/medium.input
-./ . 20 bots/debian-bin/health.cc.omp-tasks-if_clause-tied -f bots/inputs/health/medium.input
-./ . 20 bots/debian-bin/health.cc.omp-tasks-manual -f bots/inputs/health/medium.input
-./ . 20 bots/debian-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
-./ . 20 bots/debian-bin/health.cc.omp-tasks-tied -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-if_clause -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-if_clause-tied -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-manual -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-tied -f bots/inputs/health/medium.input
 ./ . 300 bots/debian-bin/nqueens.cc.omp-tasks
 ./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-if_clause
 ./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-if_clause-tied

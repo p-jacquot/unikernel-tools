@@ -1,5 +1,5 @@
 ./ . 1 bots/debian-bin/fib.cc.omp-tasks
-./ . 15 bots/debian-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
 ./ . 300 bots/debian-bin/nqueens.cc.omp-tasks
 ./ . 1 bots/debian-bin/strassen.cc.omp-tasks
 ./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks
