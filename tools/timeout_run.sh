@@ -17,7 +17,8 @@ timeout="timeout -s SIGKILL --foreground $time_limit"
 
 case $unikernel in
     "hermitcore")
-        $timeout $unikernel_dir/bin/proxy $prog $args
+        HERMIT_MEM=4G \
+            $timeout $unikernel_dir/bin/proxy $prog $args
         ;;
 
     "hermitux")

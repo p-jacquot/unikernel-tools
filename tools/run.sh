@@ -11,7 +11,8 @@ done
 
 case $unikernel in
     "hermitcore")
-        $unikernel_dir/bin/proxy $prog $args
+        HERMIT_MEM=4G \
+            $unikernel_dir/bin/proxy $prog $args
         ;;
 
     "hermitux")

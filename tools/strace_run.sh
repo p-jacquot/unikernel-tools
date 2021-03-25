@@ -30,7 +30,8 @@ return_code=0
 
 case $unikernel in
     "hermitcore")
-        $timeout $strace $unikernel_dir/bin/proxy $prog $args
+        HERMIT_MEM=4G \
+            $timeout $strace $unikernel_dir/bin/proxy $prog $args
         return_code=$?
         ;;
 
