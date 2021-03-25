@@ -21,6 +21,8 @@ fi
 ln -s ../../tools/stability.sh stability.sh
 ln -s ../../tools/timeout_run.sh timeout_run.sh
 
+# Turning of Hyperthreading.
+echo off > /sys/devices/system/cpu/smt/control
 
 for command_file in $command_file_lists; do
 

@@ -1,5 +1,5 @@
-hermitcore /opt/hermit 1 bots/hermitcore-bin/fib.cc.serial
+hermitcore /opt/hermit 10 bots/hermitcore-bin/fib.cc.serial -n 35
 hermitcore /opt/hermit 15 bots/hermitcore-bin/health.cc.serial -f bots/inputs/health/medium.input
-hermitcore /opt/hermit 110 bots/hermitcore-bin/nqueens.cc.serial
-hermitcore /opt/hermit 1 bots/hermitcore-bin/strassen.cc.serial
+hermitcore /opt/hermit 20 bots/hermitcore-bin/nqueens.cc.serial -n 13
+hermitcore /opt/hermit 20 bots/hermitcore-bin/strassen.cc.serial -n 4096
 hermitcore /opt/hermit 15 bots/hermitcore-bin/sparselu.cc.serial

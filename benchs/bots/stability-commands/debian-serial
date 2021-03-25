@@ -1,9 +1,9 @@
 ./ . 10 bots/debian-bin/alignment.cc.serial -f bots/inputs/alignment/prot.100.aa
 ./ . 20 bots/debian-bin/fft.cc.serial
-./ . 1 bots/debian-bin/fib.cc.serial
+./ . 10 bots/debian-bin/fib.cc.serial -n 35
 ./ . 30 bots/debian-bin/floorplan.cc.serial -f bots/inputs/floorplan/input.20
 ./ . 30 bots/debian-bin/health.cc.serial -f bots/inputs/health/medium.input
-./ . 60 bots/debian-bin/nqueens.cc.serial
+./ . 10 bots/debian-bin/nqueens.cc.serial -n 13
 ./ . 60 bots/debian-bin/sort.cc.serial
 ./ . 20 bots/debian-bin/sparselu.cc.serial
-./ . 15 bots/debian-bin/strassen.cc.serial
+./ . 20 bots/debian-bin/strassen.cc.serial -n 4096

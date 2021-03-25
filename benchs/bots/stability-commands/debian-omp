@@ -4,12 +4,12 @@
 ./ . 30 bots/debian-bin/alignment.cc.single-omp-tasks-tied -f bots/inputs/alignment/prot.100.aa
 ./ . 20 bots/debian-bin/fft.cc.omp-tasks
 ./ . 20 bots/debian-bin/fft.cc.omp-tasks-tied
-./ . 1 bots/debian-bin/fib.cc.omp-tasks
-./ . 1 bots/debian-bin/fib.cc.omp-tasks-if_clause
-./ . 1 bots/debian-bin/fib.cc.omp-tasks-if_clause-tied
-./ . 1 bots/debian-bin/fib.cc.omp-tasks-manual
-./ . 1 bots/debian-bin/fib.cc.omp-tasks-manual-tied
-./ . 1 bots/debian-bin/fib.cc.omp-tasks-tied
+./ . 60 bots/debian-bin/fib.cc.omp-tasks -n 35
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-if_clause -n 35
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-if_clause-tied -n 35
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-manual -n 35
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-manual-tied -n 35
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-tied -n 35
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks -f bots/inputs/floorplan/input.20
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks-if_clause -f bots/inputs/floorplan/input.20
 ./ . 20 bots/debian-bin/floorplan.cc.omp-tasks-if_clause-tied -f bots/inputs/floorplan/input.20
@@ -22,21 +22,21 @@
 ./ . 30 bots/debian-bin/health.cc.omp-tasks-manual -f bots/inputs/health/medium.input
 ./ . 30 bots/debian-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
 ./ . 30 bots/debian-bin/health.cc.omp-tasks-tied -f bots/inputs/health/medium.input
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-if_clause
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-if_clause-tied
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-manual
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-manual-tied
-./ . 300 bots/debian-bin/nqueens.cc.omp-tasks-tied
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks -n 13
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-if_clause -n 13
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-if_clause-tied -n 13
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-manual -n 13
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-manual-tied -n 13
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-tied -n 13
 ./ . 30 bots/debian-bin/sort.cc.omp-tasks
 ./ . 30 bots/debian-bin/sort.cc.omp-tasks-tied
 ./ . 10 bots/debian-bin/sparselu.cc.for-omp-tasks
 ./ . 10 bots/debian-bin/sparselu.cc.for-omp-tasks-tied
 ./ . 10 bots/debian-bin/sparselu.cc.single-omp-tasks
 ./ . 10 bots/debian-bin/sparselu.cc.single-omp-tasks-tied
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks-if_clause
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks-if_clause-tied
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks-manual
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks-manual-tied
-./ . 1 bots/debian-bin/strassen.cc.omp-tasks-tied
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks -n 4096
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-if_clause -n 4096
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-if_clause-tied -n 4096
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-manual -n 4096
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-manual-tied -n 4096
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-tied -n 4096

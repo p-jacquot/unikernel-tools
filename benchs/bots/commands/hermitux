@@ -1,5 +1,5 @@
-hermitux /root/hermitux 1 bots/hermitux-bin/fib.cc.omp-tasks
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks -n 35
 hermitux /root/hermitux 15 bots/hermitux-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
-hermitux /root/hermitux 110 bots/hermitux-bin/nqueens.cc.omp-tasks
-hermitux /root/hermitux 1 bots/hermitux-bin/strassen.cc.omp-tasks
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/strassen.cc.omp-tasks -n 4096
 hermitux /root/hermitux 15 bots/hermitux-bin/sparselu.cc.for-omp-tasks

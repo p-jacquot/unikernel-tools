@@ -20,6 +20,9 @@ time_file=times.csv
 ln -s ../../tools/benchs.sh benchs.sh
 ln -s ../../tools/timeout_run.sh timeout_run.sh
 
+# Turning of Hyperthreading.
+echo off > /sys/devices/system/cpu/smt/control
+
 for command_file in $command_files_list; do
     command_file_name=$(basename $command_file)
     echo -e "Executing commands from $command_file :\n\n"

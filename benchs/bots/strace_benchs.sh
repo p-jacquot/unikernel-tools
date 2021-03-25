@@ -24,6 +24,9 @@ fi
 
 ln -s ../../tools/strace_run.sh strace_run.sh
 
+# Turning of Hyperthreading.
+echo off > /sys/devices/system/cpu/smt/control
+
 cat $command_file | while read strace_args; do
         echo "Issuing command ./strace_run.sh $destination_folder $strace_args"
         return_code=1
