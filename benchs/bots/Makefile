@@ -38,6 +38,8 @@ bots:
 clean: 
 	rm -rf bots
 
+all-exp: benchs stability
+
 benchs : all
 	./bots_benchs.sh "commands/*-serial" $(TARGET_DIR) 1 1
 	./bots_benchs.sh "commands/hermitux commands/hermitcore" $(TARGET_DIR) 1 "2 4 8 16" 
