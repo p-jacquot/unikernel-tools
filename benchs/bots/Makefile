@@ -38,7 +38,7 @@ bots:
 clean: 
 	rm -rf bots
 
-all-exp: benchs stability
+all-exp: benchs stability strace
 
 benchs : all
 	./bots_benchs.sh "commands/*-serial" $(TARGET_DIR) 50 1
@@ -47,3 +47,12 @@ benchs : all
 stability : all
 	./stability_bench.sh "stability-commands/*-serial" $(TARGET_DIR) 20 1
 	./stability_bench.sh "stability-commands/*-omp" $(TARGET_DIR) 20 "2 4 8 16"
+
+strace : all
+	mkdir -p $(TARGET_DIR)/debian-strace $(TARGET_DIR)/hermitux-strace $(TARGET_DIR)/hermitcore-strace
+	./strace_benchs.sh stability-commands/debian-serial $(TARGET_DIR)/debian-strace 1
+	./strace_benchs.sh stability-commands/debian-omp $(TARGET_DIR)/debian-strace 8
+	./strace_benchs.sh stability-commands/hermitux-serial $(TARGET_DIR)/hermitux-strace 1
+	./strace_benchs.sh stability-commands/hermitux-omp $(TARGET_DIR)/hermitux-strace 8
+	./strace_benchs.sh stability-commands/hermitcore-serial $(TARGET_DIR)/hermitcore-strace 1
+	./strace_benchs.sh stability-commands/hermitcore-omp $(TARGET_DIR)/hermitcore-strace 8
