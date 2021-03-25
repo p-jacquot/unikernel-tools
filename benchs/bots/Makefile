@@ -43,7 +43,5 @@ benchs : all
 	./bots_benchs.sh "commands/hermitux commands/hermitcore" $(TARGET_DIR) 1 "2 4 8 16" 
 
 stability : all
-	./stability_bench.sh stability-commands/serial-commands $(TARGET_DIR) 20 1
-	./stability_bench.sh stability-commands/serial-commands $(TARGET_DIR) 20 1
-	./stability_bench.sh stability-commands/omp-commands $(TARGET_DIR) 20 "2 4 8 16"
-	./stability_bench.sh stability-commands/omp-commands $(TARGET_DIR) 20 "2 4 8 16"
+	./stability_bench.sh "stability-commands/*-serial" $(TARGET_DIR) 20 1
+	./stability_bench.sh "stability-commands/*-omp" $(TARGET_DIR) 20 "2 4 8 16"
