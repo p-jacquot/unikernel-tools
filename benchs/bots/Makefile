@@ -41,8 +41,9 @@ clean:
 all-exp: benchs stability strace
 
 benchs : all
-	./bots_benchs.sh "commands/*-serial" $(TARGET_DIR) 20 1
-	./bots_benchs.sh "commands/debian commands/hermitux commands/hermitcore" $(TARGET_DIR) 20 "2 4 8 16" 
+	./bots_benchs.sh "commands/serial/*" $(TARGET_DIR) 10 1
+	./bots_benchs.sh "commands/omp-tasks/*" $(TARGET_DIR) 10 "1 2 4 8 16" 
+	./bots_benchs.sh "commands/omp-tasks-manual-tied/*" $(TARGET_DIR) 10 "1 2 4 8 16"
 
 stability : all
 	./stability_bench.sh "stability-commands/*-serial" $(TARGET_DIR) 20 1

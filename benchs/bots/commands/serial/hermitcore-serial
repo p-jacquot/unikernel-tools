@@ -1,3 +1,4 @@
+hermitcore /opt/hermit 10 bots/hermitcore-bin/fft.cc.serial -n 35
 hermitcore /opt/hermit 10 bots/hermitcore-bin/fib.cc.serial -n 35
 hermitcore /opt/hermit 15 bots/hermitcore-bin/health.cc.serial -f bots/inputs/health/medium.input
 hermitcore /opt/hermit 20 bots/hermitcore-bin/nqueens.cc.serial -n 13

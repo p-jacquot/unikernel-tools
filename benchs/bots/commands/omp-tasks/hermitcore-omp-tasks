@@ -1,3 +1,4 @@
+hermitcore /opt/hermit 10 bots/hermitcore-bin/fft.cc.omp-tasks
 hermitcore /opt/hermit 60 bots/hermitcore-bin/fib.cc.omp-tasks -n 35
 hermitcore /opt/hermit 15 bots/hermitcore-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
 hermitcore /opt/hermit 120 bots/hermitcore-bin/nqueens.cc.omp-tasks -n 13

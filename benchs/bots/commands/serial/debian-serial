@@ -1,3 +1,4 @@
+./ . 10 bots/debian-bin/fft.cc.serial
 ./ . 10 bots/debian-bin/fib.cc.serial -n 35
 ./ . 15 bots/debian-bin/health.cc.serial -f bots/inputs/health/medium.input
 ./ . 10 bots/debian-bin/nqueens.cc.serial -n 13

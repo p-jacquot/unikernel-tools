@@ -1,0 +1,6 @@
+./ . 10 bots/debian-bin/fft.cc.omp-tasks-tied 
+./ . 60 bots/debian-bin/fib.cc.omp-tasks-manual-tied -n 35
+./ . 30 bots/debian-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
+./ . 120 bots/debian-bin/nqueens.cc.omp-tasks-manual-tied -n 13
+./ . 60 bots/debian-bin/strassen.cc.omp-tasks-manual-tied -n 4096
+./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks-tied
