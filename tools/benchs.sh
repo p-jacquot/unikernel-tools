@@ -5,6 +5,8 @@ destination_folder=$2
 n=$3
 cores_list=$4
 
+location=$(dirname $0)
+
 if [ -z "$command_file" ] | [ -z "$destination_folder" ] | [ -z "$n" ] | [ -z "$cores_list" ]; then
     echo -e "Error : Missing argument."
     echo -e "Command syntax : $0 <command_file> <destination_folder> <number of measures> <cores_list>"
@@ -62,7 +64,7 @@ for cores in $cores_list; do
                 echo -e -n "\r\tCurrent iteration : $i"
                 return_code=1
                 while [ $return_code != "0" ]; do
-                    ./timeout_run.sh $timeout_args > $tmp_file
+                    $location/timeout_run.sh $timeout_args > $tmp_file
                     return_code=$?
                 done
                 cat $tmp_file >> $tmp_output_file

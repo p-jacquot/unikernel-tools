@@ -16,9 +16,7 @@ fi
 
 
 time_file=times.csv
-
-ln -s ../../tools/benchs.sh benchs.sh
-ln -s ../../tools/timeout_run.sh timeout_run.sh
+location=$(dirname $0)
 
 # Turning of Hyperthreading.
 echo off > /sys/devices/system/cpu/smt/control
@@ -26,7 +24,7 @@ echo off > /sys/devices/system/cpu/smt/control
 for command_file in $command_files_list; do
     command_file_name=$(basename $command_file)
     echo -e "Executing commands from $command_file :\n\n"
-    ./benchs.sh $command_file $destination_folder $n "$cpus_list"
+    $location/benchs.sh $command_file $destination_folder $n "$cpus_list"
 
     results_folder=$destination_folder/results-$command_file_name
     if [ ! -e $results_folder ]; then
@@ -54,5 +52,3 @@ for command_file in $command_files_list; do
     echo -e "\n"
 done
 
-rm benchs.sh
-rm timeout_run.sh

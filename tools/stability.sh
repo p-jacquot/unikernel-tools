@@ -14,6 +14,7 @@ while [ -n "$6" ]; do
 done
 
 datafile=exec.csv
+location=$(dirname $0)
 
 if [ ! -e $datafile ]; then
     echo "unikernel;program;number of executions;fails;timeout kills;" > $datafile
@@ -29,7 +30,7 @@ timeout_count=$((0))
 
 for ((i = 0; i < $n_try; i++)); do
     echo -e -n "\r\tExecution n°$i... "
-        ./timeout_run.sh $unikernel $unikernel_dir $time_limit $prog "$args" >> $logfile
+        $location/timeout_run.sh $unikernel $unikernel_dir $time_limit $prog "$args" >> $logfile
     return_code=$?
     echo "=====================================================" >> $logfile
 

@@ -18,8 +18,7 @@ if [ ! -d $destination_folder ]; then
     exit 1
 fi
 
-ln -s ../../tools/stability.sh stability.sh
-ln -s ../../tools/timeout_run.sh timeout_run.sh
+location=$(dirname $0)
 
 # Turning of Hyperthreading.
 echo off > /sys/devices/system/cpu/smt/control
@@ -48,7 +47,7 @@ for command_file in $command_file_lists; do
             
             if [ ! -e $csvfile ] | [ ! -e $logfile ]; then
                 cat $command_file | while read timeout_args; do
-                    ./stability.sh $n_try $timeout_args
+                    $location/stability.sh $n_try $timeout_args
                 done
                 mv exec.csv $csvfile
                 mv exec.log $logfile
@@ -63,5 +62,3 @@ for command_file in $command_file_lists; do
     echo -e "\n\n"
 done
 
-rm stability.sh
-rm timeout_run.sh
