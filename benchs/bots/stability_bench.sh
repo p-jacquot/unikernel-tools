@@ -7,7 +7,7 @@ cpus_list=$4
 
 if (( $# < 4)); then
     echo -e "Missing arguments."
-    echo -e "Command syntax : $0 <command_files_list> <destination_folder> <cpus_list> <number of try>"
+    echo -e "Command syntax : $0 <command_files_list> <destination_folder> <number of try> <cpus_list>"
     echo -e "Aborting script."
     exit 1
 fi
