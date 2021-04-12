@@ -1,0 +1,4 @@
+./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks
+./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks-tied
+./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks-single-omp-tasks
+./ . 15 bots/debian-bin/sparselu.cc.for-omp-tasks-single-omp-tasks-tied

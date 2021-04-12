@@ -1,0 +1,6 @@
+./ . 30 bots/debian-bin/health.cc.omp-tasks -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-tied -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-manual -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-if_clause -f bots/inputs/health/medium.input
+./ . 30 bots/debian-bin/health.cc.omp-tasks-if_clause-tied -f bots/inputs/health/medium.input

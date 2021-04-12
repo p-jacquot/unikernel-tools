@@ -1,0 +1,6 @@
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks-tied -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks-manual -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks-manual-tied -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks-if_clause -n 35
+hermitux /root/hermitux 60 bots/hermitux-bin/fib.cc.omp-tasks-if_clause-tied -n 35

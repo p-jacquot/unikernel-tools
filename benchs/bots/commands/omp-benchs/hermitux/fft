@@ -1,0 +1,2 @@
+hermitux /root/hermitux 10 bots/hermitux-bin/fft.cc.omp-tasks
+hermitux /root/hermitux 10 bots/hermitux-bin/fft.cc.omp-tasks-tied

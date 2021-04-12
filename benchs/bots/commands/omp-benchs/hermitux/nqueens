@@ -1,0 +1,6 @@
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks -n 13
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks-tied -n 13
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks-manual -n 13
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks-manual-tied -n 13
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks-if_clause -n 13
+hermitux /root/hermitux 120 bots/hermitux-bin/nqueens.cc.omp-tasks-if_clause-tied -n 13

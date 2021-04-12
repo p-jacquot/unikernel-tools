@@ -1,0 +1,2 @@
+hermitcore /opt/hermit 10 bots/hermitcore-bin/fft.cc.omp-tasks
+hermitcore /opt/hermit 10 bots/hermitcore-bin/fft.cc.omp-tasks-tied

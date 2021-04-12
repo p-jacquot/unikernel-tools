@@ -1,0 +1,2 @@
+./ . 10 bots/debian-bin/fft.cc.omp-tasks
+./ . 10 bots/debian-bin/fft.cc.omp-tasks-tied
