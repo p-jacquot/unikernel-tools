@@ -29,19 +29,19 @@ def run_bench(output_folder, node):
     # debian part
     logger.info("Starting debian benchs...")
     debian_folder = create_subdir(output_folder, "debian")
-    debian_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/debian-omp-tasks\" {} 1 \"1 2 4 8 16\"".format(debian_folder)
+    debian_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/debian-omp-tasks\" {} 10 \"1 2 4 8 16\"".format(debian_folder)
     debian_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(debian_bench_command), node).run()
 
     # hermitux part
     logger.info("Starting hermitux benchs...")
     hermitux_folder = create_subdir(output_folder, "hermitux")
-    hermitux_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitux-omp-tasks\" {} 1 \"1 2 4 8 16\"".format(hermitux_folder)
+    hermitux_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitux-omp-tasks\" {} 10 \"1 2 4 8 16\"".format(hermitux_folder)
     hermitux_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(hermitux_bench_command), node).run()
 
     # hermitCore part
     logger.info("Starting hermitcore benchs...")
     hermitcore_folder = create_subdir(output_folder, "hermitcore")
-    hermitcore_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitcore-omp-tasks\" {} 1 \"1 2 4 8 16\"".format(hermitcore_folder)
+    hermitcore_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitcore-omp-tasks\" {} 10 \"1 2 4 8 16\"".format(hermitcore_folder)
     hermitcore_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(hermitcore_bench_command), node).run()
 
 
