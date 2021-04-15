@@ -1,6 +1,6 @@
-hermitcore /opt/hermit 10 bots/hermitcore-bin/fft.cc.omp-tasks-tied 
+hermitcore /opt/hermit 20 bots/hermitcore-bin/fft.cc.omp-tasks-tied 
 hermitcore /opt/hermit 60 bots/hermitcore-bin/fib.cc.omp-tasks-manual-tied -n 35
-hermitcore /opt/hermit 15 bots/hermitcore-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
+hermitcore /opt/hermit 30 bots/hermitcore-bin/health.cc.omp-tasks-manual-tied -f bots/inputs/health/medium.input
 hermitcore /opt/hermit 120 bots/hermitcore-bin/nqueens.cc.omp-tasks-manual-tied -n 13
 hermitcore /opt/hermit 60 bots/hermitcore-bin/strassen.cc.omp-tasks-manual-tied -n 4096
-hermitcore /opt/hermit 15 bots/hermitcore-bin/sparselu.cc.for-omp-tasks-tied 
+hermitcore /opt/hermit 30 bots/hermitcore-bin/sparselu.cc.for-omp-tasks-tied 
