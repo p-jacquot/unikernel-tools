@@ -4,3 +4,4 @@
 ./ . 120 bots/debian-bin/nqueens.cc.omp-tasks -n 13
 ./ . 60 bots/debian-bin/strassen.cc.omp-tasks -n 4096
 ./ . 30 bots/debian-bin/sparselu.cc.for-omp-tasks
+./ . 60 bots/debian-bin/floorplan.cc.omp-tasks -f bots/inputs/floorplan/input.20
