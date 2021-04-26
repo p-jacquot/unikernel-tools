@@ -1,2 +1,3 @@
 hermitcore /opt/hermit 30 bots/hermitcore-bin/sparselu.cc.for-omp-tasks
-hermitcore /opt/hermit 30 bots/hermitcore-bin/sparselu.cc.single-omp-tasks
+hermitcore /opt/hermit 30 bots/hermitcore-bin/sparselu.cc.for-omp-tasks-tied
+hermitcore /opt/hermit 30 bots/hermitcore-bin/sparselu.cc.single-omp-tasks-tied
