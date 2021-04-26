@@ -22,7 +22,7 @@ def deploy_node(job_id, site, submission):
 
 def setup_node(node):
     clone_bench = Remote('git clone https://github.com/p-jacquot/unikernel-tools', node).run()
-    compile_bench = Remote('cd ./unikernel-tools/benchs/bots && make all', node).run()
+    compile_bench = Remote('cd ./unikernel-tools/benchs/bots && make debian && make hermitux', node).run()
     return clone_bench.ok and compile_bench.ok
 
 def run_bench(output_folder, node):
@@ -39,10 +39,10 @@ def run_bench(output_folder, node):
     hermitux_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(hermitux_bench_command), node).run()
 
     # hermitCore part
-    logger.info("Starting hermitcore benchs...")
-    hermitcore_folder = create_subdir(output_folder, "hermitcore")
-    hermitcore_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitcore-omp-tasks\" {} 10 \"1 2 4 8 16\"".format(hermitcore_folder)
-    hermitcore_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(hermitcore_bench_command), node).run()
+    #logger.info("Starting hermitcore benchs...")
+    #hermitcore_folder = create_subdir(output_folder, "hermitcore")
+    #hermitcore_bench_command = "../../tools/benchs.sh \"commands/omp-tasks/hermitcore-omp-tasks\" {} 10 \"1 2 4 8 16\"".format(hermitcore_folder)
+    #hermitcore_bench = Remote('cd ./unikernel-tools/benchs/bots && {}'.format(hermitcore_bench_command), node).run()
 
 
 def launch_bench(oarsubmission, site, folder):
@@ -71,8 +71,7 @@ def launch_bench(oarsubmission, site, folder):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    node = args[0]
-    prop = "host=\'{}\'".format(node)
+    prop = args[0]
     site = args[1]
     folder = args[2]
     
