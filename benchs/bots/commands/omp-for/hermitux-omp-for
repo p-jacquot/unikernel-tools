@@ -1,0 +1,2 @@
+hermitux /root/hermitux 30 bots/hermitux-bin/sparselu.cc.for-omp-tasks
+hermitux /root/hermitux 30 bots/hermitux-bin/sparselu.cc.single-omp-tasks
