@@ -57,6 +57,12 @@ output_dir=$1
 n=$2
 cpus_list=$3
 
+if [ ! -d inputs ]; then
+    echo -e "Inputs folder does not exits."
+    echo -e "Creating inputs."
+    ./create_inputs.sh
+fi
+
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
 
