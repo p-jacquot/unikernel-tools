@@ -1,0 +1,4 @@
+./ . 60 debian-bin/bfs inputs/bfs/graph1MW_6.txt
+./ . 60 debian-bin/lavaMD -boxes1d 10
+./ . 60 debian-bin/kmeans_openmp -i inputs/kmeans/kdd_cup
+./ . 60 debian-bin/lud_omp -i inputs/lud/2048.dat
