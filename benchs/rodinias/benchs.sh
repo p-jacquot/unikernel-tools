@@ -1,5 +1,24 @@
 #! /bin/bash
 
+format_logs()
+{
+    for folder in "$debian_output_dir $hermitux_output_dir"; do
+        cd $folder/$cpu_folder
+        for logfile in *.log; do
+            time_file=$(basename -s .log $logfile).csv
+            if [ ! -e $time_file ]; then
+                cat $logfile | grep "Time Program" | awk '{print $4 ";"}' >> $time_file
+            else
+                echo -e "$folder/$cpu_folder/$time_file already exists.\
+\nSkipping formatting."
+            fi
+        done
+        cd $current_dir
+        echo -e "Finished formatting files inside $folder.\n\n"
+    done
+    echo -e "Formatting finished."
+}
+
 debian_exec(){
     output_file=$1
     prog=$2
@@ -63,6 +82,7 @@ if [ ! -d inputs ]; then
     ./create_inputs.sh
 fi
 
+current_dir=$(pwd)
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
 
@@ -79,5 +99,6 @@ for cpu in $cpus_list; do
     repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/kdd_cup.txt
     repeat $n $cpu lavaMD -cores $cpu -boxes1d 10
     repeat $n $cpu lud_omp -n $cpu -i input/lud/512.dat
-
+    
+    format_logs
 done
