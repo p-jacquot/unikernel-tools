@@ -15,7 +15,7 @@ echo "Moving data files."
 mv rodinia_3.1/data/bfs/*.txt bfs/
 mv rodinia_3.1/data/kmeans/*.txt kmeans/
 mv rodinia_3.1/data/kmeans/kdd_cup kmeans/kdd_cup.txt
-mv rodinia_3.1/data/lud/*.dat lud/*.dat
+mv rodinia_3.1/data/lud/*.dat lud/
 
 echo "Deleting Rodinias."
 rm -r rodinia_3.1.tar.bz2 rodinia_3.1

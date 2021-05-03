@@ -25,7 +25,7 @@ debian_exec(){
     shift
     shift
     args=$@
-    echo "./debian-bin/$prog $args >> $output_file"
+    ./debian-bin/$prog $args >> $output_file
 }
 
 hermitux_exec(){
@@ -38,9 +38,9 @@ hermitux_exec(){
     export HERMIT_TUX=1
     export HERMIT_CPUS=$n_cpus
     export HERMIT_MEM=4G
-    echo "$hermitux_dir/hermitux-kernel/prefix/bin/proxy \
-        $hermitux_dir/hermitux-kernel/prefix/x86_64-hermit/extra/test/hermitux \
-        hermitux-bin/$prog $args >> $output_file"
+    $hermitux_dir/hermitux-kernel/prefix/bin/proxy \
+        $hermitux_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
+        hermitux-bin/$prog $args >> $output_file
 }
 
 repeat(){
@@ -82,6 +82,12 @@ if [ ! -d inputs ]; then
     ./create_inputs.sh
 fi
 
+if [ ! -d $output_dir ]; then
+    echo -e "Output directory does not exists."
+    echo -e "Creating output directory."
+    mkdir $output_dir
+fi
+
 current_dir=$(pwd)
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
@@ -98,7 +104,7 @@ for cpu in $cpus_list; do
     repeat $n $cpu bfs $cpu inputs/bfs/graph1MW_6.txt
     repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/kdd_cup.txt
     repeat $n $cpu lavaMD -cores $cpu -boxes1d 10
-    repeat $n $cpu lud_omp -n $cpu -i input/lud/512.dat
+    repeat $n $cpu lud_omp -n $cpu -i inputs/lud/512.dat
     
     format_logs
 done
