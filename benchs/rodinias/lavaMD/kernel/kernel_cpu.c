@@ -208,8 +208,7 @@ void  kernel_cpu(	par_str par,
 	printf("%15.12f s, %15.12f % : CPU/MCPU: INPUTS\n", 				(float) (time3-time2) / 1000000, (float) (time3-time2) / (float) (time4-time0) * 100);
 	printf("%15.12f s, %15.12f % : CPU/MCPU: KERNEL\n",					(float) (time4-time3) / 1000000, (float) (time4-time3) / (float) (time4-time0) * 100);
 
-	printf("Total time:\n");
-	printf("%.12f s\n", 												(float) (time4-time0) / 1000000);
+	printf("Time Program = %.12f \n", 												(float) (time4-time0) / 1000000);
 
 } // main
 

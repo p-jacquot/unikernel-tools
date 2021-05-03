@@ -229,7 +229,7 @@ int main(int argc, char **argv) {
             printf("%f ", cluster_centres[i][j]);
         printf("\n\n");
     }*/
-	printf("Time for process: %f\n", timing);
+	printf("Time Program %f\n", timing);
 
     free(attributes);
     free(cluster_centres[0]);

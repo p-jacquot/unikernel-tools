@@ -170,7 +170,7 @@ void BFSGraph( int argc, char** argv)
 	while(stop);
 #ifdef OPEN
         double end_time = omp_get_wtime();
-        printf("Compute time: %lf\n", (end_time - start_time));
+        printf("Time Program = %lf\n", (end_time - start_time));
 #ifdef OMP_OFFLOAD
         }
 #endif

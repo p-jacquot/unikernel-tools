@@ -120,7 +120,7 @@ main ( int argc, char *argv[] )
   stopwatch_start(&sw);
   lud_omp(m, matrix_dim);
   stopwatch_stop(&sw);
-  printf("Time consumed(ms): %lf\n", 1000*get_interval_by_sec(&sw));
+  printf("Time Program = %lf\n", get_interval_by_sec(&sw));
 
   if (do_verify){
     printf("After LUD\n");
