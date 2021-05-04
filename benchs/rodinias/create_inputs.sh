@@ -13,6 +13,12 @@ tar -xf rodinia_3.1.tar.bz2
 
 echo "Moving data files."
 mv rodinia_3.1/data/bfs/*.txt bfs/
+cd ../bfs/inputGen 
+make
+./gen_dataset.sh
+mv *.txt ../../inputs/bfs/
+cd ../../inputs
+
 mv rodinia_3.1/data/kmeans/*.txt kmeans/
 mv rodinia_3.1/data/kmeans/kdd_cup kmeans/kdd_cup.txt
 mv rodinia_3.1/data/lud/*.dat lud/

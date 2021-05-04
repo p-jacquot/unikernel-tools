@@ -113,10 +113,10 @@ for cpu in $cpus_list; do
     mkdir $debian_output_dir/$cpu_folder
     mkdir $hermitux_output_dir/$cpu_folder
 
-    repeat $n $cpu bfs $cpu inputs/bfs/graph1MW_6.txt
-    repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/kdd_cup.txt
+    repeat $n $cpu bfs $cpu inputs/bfs/graph16M.txt
+    repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/204800.txt
     repeat $n $cpu lavaMD -cores $cpu -boxes1d 10
-    repeat $n $cpu lud_omp -n $cpu -i inputs/lud/512.dat
+    repeat $n $cpu lud_omp -n $cpu -i inputs/lud/2048.dat
     
     format_logs
 done
