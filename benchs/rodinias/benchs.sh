@@ -88,6 +88,18 @@ if [ ! -d $output_dir ]; then
     mkdir $output_dir
 fi
 
+if [ ! -d debian-bin ]; then
+   echo -e "Debian binaries not found."
+   echo -e "Compiling rodinias."
+   make debian
+fi
+
+if [ ! -d hermitux-bin ]; then
+	echo -e "Hermitux binaries not found."
+	echo -e "Compiling rodinias."
+	make hermitux
+fi
+
 current_dir=$(pwd)
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
