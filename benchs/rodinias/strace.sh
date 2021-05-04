@@ -32,6 +32,8 @@ if [ -d $strace_folder ]; then
     exit 1
 fi
 
+mkdir $strace_folder
+
 for cpu in $cpus_list; do
     cpu_folder=$strace_folder/$cpu-cores
     mkdir $cpu_folder
