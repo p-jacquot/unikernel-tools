@@ -100,6 +100,9 @@ if [ ! -d hermitux-bin ]; then
 	make hermitux
 fi
 
+#disabling hyperthreading
+echo off > /sys/devices/system/cpu/smt/control
+
 current_dir=$(pwd)
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
