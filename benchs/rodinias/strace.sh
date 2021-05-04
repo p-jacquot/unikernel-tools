@@ -3,7 +3,7 @@
 output_dir=$1
 cpus_list=$2
 
-if [ $# < 2 ]; then
+if [ $# -lt 2 ]; then
     echo -e "Not enough arguments provided."
     echo -e "Command syntax : $0 <output_dir> <cpus_list>."
     exit 1
