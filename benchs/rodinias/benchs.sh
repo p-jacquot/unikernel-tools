@@ -121,13 +121,13 @@ for cpu in $cpus_list; do
     repeat $n $cpu bfs $cpu inputs/bfs/graph16M.txt
 
     echo -e "Running kmeans_openmp..."
-    repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/204800.txt
+    repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/819200.txt
     
     echo -e "Running lavaMD..."
-    repeat $n $cpu lavaMD -cores $cpu -boxes1d 10
+    repeat $n $cpu lavaMD -cores $cpu -boxes1d 15
 
     echo -e "Running lud_omp..."
-    repeat $n $cpu lud_omp -n $cpu -i inputs/lud/2048.dat
+    repeat $n $cpu lud_omp -n $cpu -s 8196
     
     format_logs
     echo -e "\n"
