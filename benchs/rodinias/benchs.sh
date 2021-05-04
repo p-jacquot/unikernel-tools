@@ -2,7 +2,7 @@
 
 format_logs()
 {
-    for folder in "$debian_output_dir $hermitux_output_dir"; do
+    for folder in $debian_output_dir $hermitux_output_dir; do
         cd $folder/$cpu_folder
         for logfile in *.log; do
             time_file=$(basename -s .log $logfile).csv
