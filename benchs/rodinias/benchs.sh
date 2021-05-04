@@ -14,7 +14,7 @@ format_logs()
             fi
         done
         cd $current_dir
-        echo -e "Finished formatting files inside $folder.\n\n"
+        echo -e "Finished formatting files inside $folder."
     done
     echo -e "Formatting finished."
 }
@@ -109,14 +109,23 @@ mkdir $hermitux_output_dir
 
 for cpu in $cpus_list; do
     
+    echo -e "Runnning benchs for $cpu cores."
     cpu_folder=$cpu-cores
     mkdir $debian_output_dir/$cpu_folder
     mkdir $hermitux_output_dir/$cpu_folder
 
+    echo -e "Running bfs..."
     repeat $n $cpu bfs $cpu inputs/bfs/graph16M.txt
+
+    echo -e "Running kmeans_openmp..."
     repeat $n $cpu kmeans_openmp -n $cpu -i inputs/kmeans/204800.txt
+    
+    echo -e "Running lavaMD..."
     repeat $n $cpu lavaMD -cores $cpu -boxes1d 10
+
+    echo -e "Running lud_omp..."
     repeat $n $cpu lud_omp -n $cpu -i inputs/lud/2048.dat
     
     format_logs
+    echo -e "\n"
 done
