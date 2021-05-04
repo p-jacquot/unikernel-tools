@@ -21,11 +21,11 @@ kmeans_clustering.o: kmeans_clustering.c kmeans.h
 	$(CC) $(CC_FLAGS) kmeans_clustering.c -c
 
 debian:
-	clang-11 -c -fopenmp *.c
+	clang-11 -O2 -c -fopenmp *.c
 	clang-11 -O2 -fopenmp -liomp5 -L/usr/local/lib -R/usr/local/lib -o kmeans *.o
 
 hermitux:
-	clang-11 -c *.c
+	clang-11 -O2 -c -fopenmp *.c
 	/root/hermitux/musl/obj/musl-gcc -O2 -static -fopenmp -o kmeans /root/omp/*.o *.o
 
 clean:

@@ -110,11 +110,11 @@ endif
 				$(CXX) -c $(ALL_CFLAGS) $< -o $@
 
 debian:
-	clang-11 -c -fopenmp *.c -I../common ../common/*.c
+	clang-11 -O3 -c -fopenmp *.c -I../common ../common/*.c
 	clang-11 -O3 -fopenmp -lm -liomp5 -L/usr/local/lib -R/usr/local/lib -o lud_omp *.o
 
 hermitux:
-	clang-11 -c *.c -I../common ../common/*.c
+	clang-11 -O3 -c -fopenmp *.c -I../common ../common/*.c
 	/root/hermitux/musl/obj/musl-gcc -O3 -fopenmp /root/omp/*.o -static -o lud_omp *.o
 
 clean:

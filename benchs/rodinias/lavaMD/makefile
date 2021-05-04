@@ -63,11 +63,11 @@ main.o:		main.h \
 						-O3
 
 debian:
-	clang-11 -c -fopenmp kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
+	clang-11 -O3 -c -fopenmp kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
 	clang-11 -O3 -fopenmp -lm -liomp5 -L/usr/local/lib -R/usr/local/lib -o lavaMD *.o
 
 hermitux:
-	clang-11 -c kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
+	clang-11 -O3 -c -fopenmp kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
 	/root/hermitux/musl/obj/musl-gcc -O3 -static -fopenmp -o lavaMD /root/omp/*.o *.o
 
 # delete all object and executable files
