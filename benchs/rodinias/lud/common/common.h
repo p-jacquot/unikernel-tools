@@ -20,6 +20,11 @@ typedef enum _FUNC_RETURN_CODE {
     RET_FAILURE
 }func_ret_t;
 
+typedef struct __custom_watch_t{
+    double begin;
+    double end;
+}custom_watch;
+
 typedef struct __stopwatch_t{
     struct timeval begin;
     struct timeval end;
@@ -28,11 +33,17 @@ typedef struct __stopwatch_t{
 void 
 stopwatch_start(stopwatch *sw);
 
+void custom_start(custom_watch *w);
+
 void 
 stopwatch_stop (stopwatch *sw);
 
+void custom_stop(custom_watch *w);
+
 double 
 get_interval_by_sec(stopwatch *sw);
+
+double get_custom_interval_by_sec(custom_watch *w);
 
 int 
 get_interval_by_usec(stopwatch *sw);

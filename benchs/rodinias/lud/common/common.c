@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
+#include <sys/time.h>
 
 #include "common.h"
 
@@ -16,6 +17,16 @@ void stopwatch_start(stopwatch *sw){
     gettimeofday(&sw->begin, NULL);
 }
 
+void custom_start(custom_watch *w)
+{
+    if(w == NULL)
+        return;
+    
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    w->begin = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
+}
+
 void stopwatch_stop(stopwatch *sw){
     if (sw == NULL)
         return;
@@ -23,11 +34,27 @@ void stopwatch_stop(stopwatch *sw){
     gettimeofday(&sw->end, NULL);
 }
 
+void custom_stop(custom_watch *w)
+{
+    if (w == NULL)
+        return;
+
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    w->end = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
+}
+
 double 
 get_interval_by_sec(stopwatch *sw){
     if (sw == NULL)
         return 0;
     return ((double)(sw->end.tv_sec-sw->begin.tv_sec)+(double)(sw->end.tv_usec-sw->begin.tv_usec)/1000000);
+}
+
+double
+get_custom_interval_by_sec(custom_watch *w)
+{
+    return w->end - w->begin;
 }
 
 int 
