@@ -41,5 +41,7 @@ for cpu in $cpus_list; do
     strace -c -o $cpu_folder/bfs debian-bin/bfs $cpu inputs/bfs/graph16M.txt
     strace -c -o $cpu_folder/kmeans_openmp debian-bin/kmeans_openmp -n $cpu -i inputs/kmeans/204800.txt
     strace -c -o $cpu_folder/lavaMD debian-bin/lavaMD -cores $cpu -boxes1d 10
-    strace -c -o $cpu_folder/lud_omp -n $cpu -i inputs/lud/2048.dat
+    strace -c -o $cpu_folder/lud_omp-2048 debian-bin/lud_omp -n $cpu -i inputs/lud/2048.dat
+    strace -c -o $cpu_folder/lud_omp-4096 debian-bin/lud_omp -n $cpu -s 4096
+    strace -c -o $cpu_folder/lud_omp-8192 debian-bin/lud_omp -n $cpu -s 8192
 done
