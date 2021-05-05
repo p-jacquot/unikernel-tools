@@ -127,7 +127,7 @@ for cpu in $cpus_list; do
     repeat $n $cpu lavaMD -cores $cpu -boxes1d 15
 
     echo -e "Running lud_omp..."
-    repeat $n $cpu lud_omp -n $cpu -s 8196
+    repeat $n $cpu lud_omp -n $cpu -s 8192
     
     format_logs
     echo -e "\n"
