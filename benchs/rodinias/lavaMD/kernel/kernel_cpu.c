@@ -52,13 +52,15 @@ void  kernel_cpu(	par_str par,
 	// timer
 	long long time0;
 
+    double begin;
 	time0 = get_time();
-
+    begin = custom_get_time();
 	// timer
 	long long time1;
 	long long time2;
 	long long time3;
 	long long time4;
+    double end;
 
 	// parameters
 	fp alpha;
@@ -194,7 +196,7 @@ void  kernel_cpu(	par_str par,
 		} // for k
 
 	} // for l
-
+    end = custom_get_time();
 	time4 = get_time();
 
 	//======================================================================================================================================================150
@@ -208,7 +210,7 @@ void  kernel_cpu(	par_str par,
 	//printf("%15.12f s, %15.12f % : CPU/MCPU: INPUTS\n", 				(float) (time3-time2) / 1000000, (float) (time3-time2) / (float) (time4-time0) * 100);
 	//printf("%15.12f s, %15.12f % : CPU/MCPU: KERNEL\n",					(float) (time4-time3) / 1000000, (float) (time4-time3) / (float) (time4-time0) * 100);
 
-	printf("Time Program = %.12f \n", 												(float) (time4-time0) / 1000000);
+	printf("Time Program = %.12f \n", end - begin);
 
 } // main
 
