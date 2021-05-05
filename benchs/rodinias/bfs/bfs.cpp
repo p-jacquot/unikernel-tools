@@ -3,6 +3,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <time.h>
+#include <sys/time.h>
 //#define NUM_THREAD 4
 #define OPEN
 
@@ -115,7 +117,9 @@ void BFSGraph( int argc, char** argv)
 	
 	int k=0;
 #ifdef OPEN
-        double start_time = omp_get_wtime();
+        struct timespec t;
+        clock_gettime(CLOCK_MONOTONIC, &t);
+        double start_time = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
 #ifdef OMP_OFFLOAD
 #pragma omp target data map(to: no_of_nodes, h_graph_mask[0:no_of_nodes], h_graph_nodes[0:no_of_nodes], h_graph_edges[0:edge_list_size], h_graph_visited[0:no_of_nodes], h_updating_graph_mask[0:no_of_nodes]) map(h_cost[0:no_of_nodes])
         {
@@ -169,7 +173,8 @@ void BFSGraph( int argc, char** argv)
         }
 	while(stop);
 #ifdef OPEN
-        double end_time = omp_get_wtime();
+        clock_gettime(CLOCK_MONOTONIC, &t);
+        double end_time = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
         printf("Time Program = %lf\n", (end_time - start_time));
 #ifdef OMP_OFFLOAD
         }
