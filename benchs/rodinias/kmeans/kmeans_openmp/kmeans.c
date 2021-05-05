@@ -73,7 +73,9 @@
 #include <string.h>
 #include <limits.h>
 #include <math.h>
+#include <time.h>
 #include <sys/types.h>
+#include <sys/time.h>
 #include <fcntl.h>
 #include <omp.h>
 #include "getopt.h"
@@ -115,7 +117,10 @@ int main(int argc, char **argv) {
            int     isBinaryFile = 0;
            int     nloops = 1;
            float   threshold = 0.001;
-		   double  timing;		   
+		   double  timing;
+
+    double begin;
+    double end; 
 
 	while ( (opt=getopt(argc,argv,"i:k:t:b:n:?"))!= EOF) {
 		switch (opt) {
@@ -204,7 +209,11 @@ int main(int argc, char **argv) {
 
 	memcpy(attributes[0], buf, numObjects*numAttributes*sizeof(float));
 
-	timing = omp_get_wtime();
+    // custom way of getting time.
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    begin = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
+
     for (i=0; i<nloops; i++) {
         
         cluster_centres = NULL;
@@ -217,7 +226,11 @@ int main(int argc, char **argv) {
                );
      
     }
-    timing = omp_get_wtime() - timing;
+    //custom way of getting time.
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    end = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
+    
+    timing = end - begin;
 	
 
 	printf("number of Clusters %d\n",nclusters); 
