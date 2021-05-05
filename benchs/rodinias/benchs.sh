@@ -54,21 +54,27 @@ repeat(){
     
     if [ ! -e $debian_output_dir/$cpu_folder/$prog_name.log ]; then
         for ((i = 0; i < $n_times; i++)); do
+            echo -n -e "\rdebian exec n° : $i"
             debian_exec $prog_name.log $prog_name $args
         done
         mv $prog_name.log $debian_output_dir/$cpu_folder/
     else
-        echo -e "Debian log file already exists. Skipping execution."
+        echo -e -n "Debian log file already exists. Skipping execution."
     fi
 
+    echo
+    
     if [ ! -e $hermitux_output_dir/$cpu_folder/$prog_name.log ]; then
         for ((i = 0; i < $n_times; i++)); do
+            echo -n -e "\rhermitux exec n° : $i"
             hermitux_exec $prog_name.log $prog_name $args
         done
         mv $prog_name.log $hermitux_output_dir/$cpu_folder/
     else
         echo -e "Hermitux log file already exists. Skipping execution."
     fi
+    
+    echo
 }
 
 hermitux_dir=/root/hermitux
