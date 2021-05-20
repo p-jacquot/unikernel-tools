@@ -38,6 +38,18 @@ Installing HermitCore this way will put the toolchain at `/opt/hermit/`. If you 
 
 > In this repo, we assume that the toolchain is located at `/opt/hermit`
 
+# Testing HermitCore
+
+To check if HermitCore has been installed successfully, you can use the Makefile in this folder. This Makefile will compile and execute the applications in the [apps]() folder. If HermitCore has been succesfully installed, you shouldn't have any problems while executing the two following commands :
+
+```
+make hello-run
+```
+
+```
+make omp-test-run
+```
+
 # Compiling an application for HermitCore
 
 Because we want to build a whole kernel, and not a single application, we need to build our application with HermitCore's toolchain.
