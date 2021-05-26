@@ -6,7 +6,7 @@ stability()
     unikernel_dir=$2
     cpu=$3
     output_folder=$4
-    bin_folder=$unikernel-bin
+    bin_folder=$5
 
     $stability_script $n_try $unikernel $unikernel_dir 200 $bin_folder/bfs $cpu inputs/bfs/graph16M.txt
     $stability_script $n_try $unikernel $unikernel_dir 200 $bin_folder/kmeans_openmp -n $cpu -i inputs/kmeans/819200.txt
@@ -23,7 +23,7 @@ stability_script=../../tools/stability.sh
 
 cpu_list="1 2 4 8 16"
 
-hermitux_dir=/home/pierre/unikernels/hermitux
+hermitux_dir=/root/hermitux
 hermitcore_dir=/opt/hermit
 
 if [ ! -d inputs ]; then
@@ -58,16 +58,16 @@ for cores in $cpu_list; do
     echo -e "Running stability tests for $cores cores."
 
     echo -e "Running debian tests."
-    stability ./ . $cores $debian_output_dir
+    stability ./ . $cores $debian_output_dir debian-bin
 
     export HERMIT_CPUS=$cores
     export OMP_NUM_THREADS=$cores
     
     echo -e "Running hermitux tests."
-    stability hermitux $hermitux_dir $cores $hermitux_output_dir
+    stability hermitux $hermitux_dir $cores $hermitux_output_dir hermitux-bin
 
     #echo -e "Running hermitcore tests."
-    #stability hermitcore $hermitcore_dir $cores $hermitcore_output_dir
+    #stability hermitcore $hermitcore_dir $cores $hermitcore_output_dir hermitcore-bin
 
     echo -e "\n"
 done
