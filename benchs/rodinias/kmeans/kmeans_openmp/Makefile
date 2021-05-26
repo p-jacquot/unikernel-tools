@@ -28,5 +28,8 @@ hermitux:
 	clang-11 -O2 -c -fopenmp *.c
 	/root/hermitux/musl/obj/musl-gcc -O2 -static -fopenmp -o kmeans *.o /root/omp/*.o
 
+hermitcore:
+	/opt/hermit/bin/x86_64-hermit-gcc -O2 -fopenmp -o kmeans *.c
+
 clean:
 	rm -f *.o *~ kmeans

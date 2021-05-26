@@ -9,5 +9,8 @@ debian:
 hermitux:
 	cd omp; make hermitux
 
+hermitcore:
+	cd omp; make hermitcore
+
 clean:
 	cd omp; make clean ; make -f Makefile.offload clean

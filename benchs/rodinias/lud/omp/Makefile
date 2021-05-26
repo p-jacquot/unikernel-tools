@@ -117,6 +117,9 @@ hermitux:
 	clang-11 -O3 -c -fopenmp *.c -I../common ../common/*.c
 	/root/hermitux/musl/obj/musl-gcc -O3 -fopenmp /root/omp/*.o -static -o lud_omp *.o
 
+hermitcore:
+	/opt/hermit/bin/x86_64-hermit-gcc -o lud_omp -O3 -fopenmp *.c -I../common ../common/*.c
+
 clean:
 	-rm --force $(EXECUTABLE) $(OBJECTS) *~
 

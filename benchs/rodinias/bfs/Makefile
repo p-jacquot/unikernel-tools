@@ -15,5 +15,8 @@ hermitux: bfs.cpp
 	clang-11 -O2 -c -fopenmp bfs.cpp
 	/root/hermitux/musl/obj/musl-gcc -O2 -static -fopenmp -o bfs /root/omp/*.o bfs.o
 
+hermitcore: bfs.cpp
+	/opt/hermit/bin/x86_64-hermit-gcc -O2 -fopenmp -o bfs bfs.cpp
+
 clean:
 	rm -f bfs result.txt

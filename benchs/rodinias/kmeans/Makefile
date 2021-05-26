@@ -13,6 +13,10 @@ hermitux:
 	cd kmeans_openmp; make hermitux
 	cd kmeans_serial; make hermitux
 
+hermitcore:
+	cd kmeans_openmp; make hermitcore
+	cd kmeans_serial; make hermitcore
+
 clean:
 	cd kmeans_serial; make clean
 	cd kmeans_openmp; make clean
