@@ -2,7 +2,7 @@
 
 format_logs()
 {
-    for folder in $debian_output_dir $hermitux_output_dir; do
+    for folder in $debian_output_dir $hermitux_output_diri $hermitcore_output_dir; do
         cd $folder/$cpu_folder
         for logfile in *.log; do
             time_file=$(basename -s .log $logfile).csv
@@ -43,6 +43,19 @@ hermitux_exec(){
         hermitux-bin/$prog $args >> $output_file
 }
 
+hermitcore_exec(){
+    output_file=$1
+    prog=$2
+    shift
+    shift
+    args=$@
+    export HERMIT_ISLE=uhyve
+    export HERMIT_TUX=0
+    export HERMIT_CPUS=$n_cpus
+    export HERMIT_MEM=4G
+    $hermitcore_dir/bin/proxy hermitcore-bin/$prog $args >> $output_file 
+}
+
 repeat(){
     n_times=$1
     n_cpus=$2
@@ -75,9 +88,25 @@ repeat(){
     fi
     
     echo
+
+    if [ $prog_name == "lavaMD" ] || [ $prog_name == "lud_omp" ]; then
+        
+        if [ ! -e $hermitux_output_dir/$cpu_folder/$prog_name.log ]; then
+            for ((i = 0; i < $n_times; i++)); do
+                echo -n -e "\rhermitux exec n° : $i"
+                hermitcore_exec $prog_name.log $prog_name $args
+            done
+            mv $prog_name.log $hermitcore_output_dir/$cpu_folder/
+        else
+            echo -e "HermitCore log file already exists. Skipping execution."
+        fi
+    
+    fi
 }
 
-hermitux_dir=/root/hermitux
+#hermitux_dir=/root/hermitux
+hermitux_dir=/home/pierre/unikernels/hermitux
+hermitcore_dir=/opt/hermit
 
 if [ $# -lt 3 ]; then
     echo -e "Error : not enough arguments provided."
@@ -114,12 +143,19 @@ if [ ! -d hermitux-bin ]; then
 	make hermitux
 fi
 
+if [ -d hermitcore-bin ]; then
+    echo -e "HermitCore binaries not found."
+    echo -e "Compiling rodinias."
+    make hermitcore
+fi
+
 #disabling hyperthreading
 echo off > /sys/devices/system/cpu/smt/control
 
 current_dir=$(pwd)
 debian_output_dir=$output_dir/debian
 hermitux_output_dir=$output_dir/hermitux
+hermitcore_output_dir=$output_dir/hermitcore
 
 mkdir $debian_output_dir
 mkdir $hermitux_output_dir
@@ -130,6 +166,7 @@ for cpu in $cpus_list; do
     cpu_folder=$cpu-cores
     mkdir $debian_output_dir/$cpu_folder
     mkdir $hermitux_output_dir/$cpu_folder
+    mkdir $hermitcore_output_dir/$cpu_folder
 
     echo -e "Running bfs..."
     repeat $n $cpu bfs $cpu inputs/bfs/graph16M.txt

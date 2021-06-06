@@ -26,15 +26,15 @@ hermitux :
 	make clean
 
 hermitcore :
-	cd bfs && make hermitcore
+	#cd bfs && make hermitcore
 	cd lavaMD && make hermitcore
-	cd kmeans && make hermitcore
+	#cd kmeans && make hermitcore
 	cd lud && make hermitcore
 	mkdir hermitcore-bin
-	cp bfs/bfs hermitcore-bin/
+	#cp bfs/bfs hermitcore-bin/
 	cp lavaMD/lavaMD hermitcore-bin/
-	cp kmeans/kmeans_openmp/kmeans hermitcore-bin/kmeans_openmp
-	cp kmeans/kmeans_serial/kmeans hermitcore-bin/kmeans_serial
+	#cp kmeans/kmeans_openmp/kmeans hermitcore-bin/kmeans_openmp
+	#cp kmeans/kmeans_serial/kmeans hermitcore-bin/kmeans_serial
 	cp lud/omp/lud_omp hermitcore-bin/lud_omp
 	make clean
 
