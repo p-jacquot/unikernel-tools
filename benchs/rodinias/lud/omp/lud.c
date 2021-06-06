@@ -127,7 +127,7 @@ main ( int argc, char *argv[] )
 #endif
   lud_omp(m, matrix_dim);
 #ifdef CUSTOM
-  custom_watch(&w);
+  custom_stop(&w);
 #else
   stopwatch_stop(&w);
 #endif
