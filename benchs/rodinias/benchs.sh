@@ -104,8 +104,7 @@ repeat(){
     fi
 }
 
-#hermitux_dir=/root/hermitux
-hermitux_dir=/home/pierre/unikernels/hermitux
+hermitux_dir=/root/hermitux
 hermitcore_dir=/opt/hermit
 
 if [ $# -lt 3 ]; then
