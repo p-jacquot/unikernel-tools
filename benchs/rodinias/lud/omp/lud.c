@@ -46,7 +46,11 @@ main ( int argc, char *argv[] )
   func_ret_t ret;
   const char *input_file = NULL;
   float *m, *mm;
+#ifdef CUSTOM
   custom_watch w;
+#else
+  stopwatch w;
+#endif
 
 	
   while ((opt = getopt_long(argc, argv, "::vs:n:i:", 
@@ -116,11 +120,23 @@ main ( int argc, char *argv[] )
     matrix_duplicate(m, &mm, matrix_dim);
   }
 
-
+#ifdef CUSTOM
   custom_start(&w);
+#else
+  stopwatch_start(&w);
+#endif
   lud_omp(m, matrix_dim);
-  custom_stop(&w);
+#ifdef CUSTOM
+  custom_watch(&w);
+#else
+  stopwatch_stop(&w);
+#endif
+
+#ifdef CUSTOM
   printf("Time Program = %lf\n", get_custom_interval_by_sec(&w));
+#else
+  printf("Time Program = %lf\n", get_interval_by_sec(&w));
+#endif
 
   if (do_verify){
     printf("After LUD\n");

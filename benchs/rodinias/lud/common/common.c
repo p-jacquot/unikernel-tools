@@ -17,6 +17,7 @@ void stopwatch_start(stopwatch *sw){
     gettimeofday(&sw->begin, NULL);
 }
 
+#ifdef CUSTOM
 void custom_start(custom_watch *w)
 {
     if(w == NULL)
@@ -26,6 +27,7 @@ void custom_start(custom_watch *w)
     clock_gettime(CLOCK_MONOTONIC, &t);
     w->begin = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
 }
+#endif // CUSTOM
 
 void stopwatch_stop(stopwatch *sw){
     if (sw == NULL)
@@ -34,6 +36,7 @@ void stopwatch_stop(stopwatch *sw){
     gettimeofday(&sw->end, NULL);
 }
 
+#ifdef CUSTOM
 void custom_stop(custom_watch *w)
 {
     if (w == NULL)
@@ -43,6 +46,7 @@ void custom_stop(custom_watch *w)
     clock_gettime(CLOCK_MONOTONIC, &t);
     w->end = (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
 }
+#endif
 
 double 
 get_interval_by_sec(stopwatch *sw){

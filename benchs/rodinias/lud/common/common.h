@@ -33,17 +33,23 @@ typedef struct __stopwatch_t{
 void 
 stopwatch_start(stopwatch *sw);
 
+#ifdef CUSTOM
 void custom_start(custom_watch *w);
+#endif
 
 void 
 stopwatch_stop (stopwatch *sw);
 
+#ifdef CUSTOM
 void custom_stop(custom_watch *w);
+#endif
 
 double 
 get_interval_by_sec(stopwatch *sw);
 
+#ifdef CUSTOM
 double get_custom_interval_by_sec(custom_watch *w);
+#endif 
 
 int 
 get_interval_by_usec(stopwatch *sw);
