@@ -91,9 +91,9 @@ repeat(){
 
     if [ $prog_name == "lavaMD" ] || [ $prog_name == "lud_omp" ]; then
         
-        if [ ! -e $hermitux_output_dir/$cpu_folder/$prog_name.log ]; then
+        if [ ! -e $hermitcore_output_dir/$cpu_folder/$prog_name.log ]; then
             for ((i = 0; i < $n_times; i++)); do
-                echo -n -e "\rhermitux exec n° : $i"
+                echo -n -e "\rhermitcore exec n° : $i"
                 hermitcore_exec $prog_name.log $prog_name $args
             done
             mv $prog_name.log $hermitcore_output_dir/$cpu_folder/
@@ -142,7 +142,7 @@ if [ ! -d hermitux-bin ]; then
 	make hermitux
 fi
 
-if [ -d hermitcore-bin ]; then
+if [ ! -d hermitcore-bin ]; then
     echo -e "HermitCore binaries not found."
     echo -e "Compiling rodinias."
     make hermitcore
@@ -158,6 +158,7 @@ hermitcore_output_dir=$output_dir/hermitcore
 
 mkdir $debian_output_dir
 mkdir $hermitux_output_dir
+mkdir $hermitcore_output_dir
 
 for cpu in $cpus_list; do
     
