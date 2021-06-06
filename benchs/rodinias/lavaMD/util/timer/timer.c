@@ -28,12 +28,24 @@ long long get_time() {
 	return (tv.tv_sec * 1000000) + tv.tv_usec;
 }
 
+#ifdef GETTIMEOFDAY
+double custom_get_time()
+{
+    struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (double) ((tv.tv_sec) + (double)(tv.tv_usec/1000000.0));
+}
+
+#else
+
 double custom_get_time()
 {
     struct timespec t;
     clock_gettime(CLOCK_MONOTONIC, &t);
     return (double)(t.tv_sec + t.tv_nsec / 1000000000.0);
 }
+
+#endif
 
 //===============================================================================================================================================================================================================200
 //	END TIMER CODE

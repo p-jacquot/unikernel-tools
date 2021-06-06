@@ -71,7 +71,7 @@ hermitux:
 	/root/hermitux/musl/obj/musl-gcc -O3 -static -fopenmp -o lavaMD /root/omp/*.o *.o
 
 hermitcore:
-	/opt/hermit/bin/x86_64-hermit-gcc -O3 -fopenmp -o lavaMD kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
+	/opt/hermit/bin/x86_64-hermit-gcc -D GETTIMEOFDAY -O3 -fopenmp -o lavaMD kernel/*.c util/num/*.c util/timer/*.c util/device/*.h *.c
 
 # delete all object and executable files
 clean:
