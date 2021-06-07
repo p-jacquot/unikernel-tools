@@ -38,9 +38,15 @@ hermitux_exec(){
     export HERMIT_TUX=1
     export HERMIT_CPUS=$n_cpus
     export HERMIT_MEM=4G
-    $hermitux_dir/hermitux-kernel/prefix/bin/proxy \
-        $hermitux_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
-        hermitux-bin/$prog $args >> $output_file
+    ret=1
+    while [ ret != 0 ]; do
+        $timeout \
+        $hermitux_dir/hermitux-kernel/prefix/bin/proxy \
+            $hermitux_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
+            hermitux-bin/$prog $args > tmp
+        ret=$?
+    done
+    cat tmp >> $output_file
 }
 
 hermitcore_exec(){
@@ -53,7 +59,13 @@ hermitcore_exec(){
     export HERMIT_TUX=0
     export HERMIT_CPUS=$n_cpus
     export HERMIT_MEM=4G
-    $hermitcore_dir/bin/proxy hermitcore-bin/$prog $args >> $output_file 
+    ret=1
+    while [ ret != 0 ]; do
+        $timeout \
+        $hermitcore_dir/bin/proxy hermitcore-bin/$prog $args > tmp
+        ret=$?
+    done
+    cat tmp >> $output_file
 }
 
 repeat(){
@@ -106,6 +118,7 @@ repeat(){
 
 hermitux_dir=/root/hermitux
 hermitcore_dir=/opt/hermit
+timeout="timeout -s SIGKILL --foreground 120"
 
 if [ $# -lt 3 ]; then
     echo -e "Error : not enough arguments provided."
