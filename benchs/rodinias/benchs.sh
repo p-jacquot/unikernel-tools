@@ -39,7 +39,7 @@ hermitux_exec(){
     export HERMIT_CPUS=$n_cpus
     export HERMIT_MEM=4G
     ret=1
-    while [ ret != 0 ]; do
+    while [ $ret != "0" ]; do
         $timeout \
         $hermitux_dir/hermitux-kernel/prefix/bin/proxy \
             $hermitux_dir/hermitux-kernel/prefix/x86_64-hermit/extra/tests/hermitux \
