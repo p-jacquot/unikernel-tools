@@ -60,7 +60,7 @@ hermitcore_exec(){
     export HERMIT_CPUS=$n_cpus
     export HERMIT_MEM=4G
     ret=1
-    while [ ret != 0 ]; do
+    while [ $ret != "0" ]; do
         $timeout \
         $hermitcore_dir/bin/proxy hermitcore-bin/$prog $args > tmp
         ret=$?
