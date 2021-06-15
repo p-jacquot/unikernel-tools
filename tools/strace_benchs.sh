@@ -26,14 +26,19 @@ fi
 
 # Turning of Hyperthreading.
 echo off > /sys/devices/system/cpu/smt/control
+for core in $ncpus; do
 
-cat $command_file | while read strace_args; do
-        echo "Issuing command ./strace_run.sh $destination_folder $strace_args"
-        return_code=1
-        while [ $return_code != "0" ]; do
-            $location/strace_run.sh $destination_folder $strace_args
-            return_code=$?
-        done
-        echo 
+	cpu_folder=$destination_folder/$core-cores
+	mkdir $cpu_folder
+	export OMP_NUM_THREADS=$core
+
+	cat $command_file | while read strace_args; do
+        	echo "Issuing command ./strace_run.sh $cpu_folder $strace_args"
+        	return_code=1
+        	while [ $return_code != "0" ]; do
+            		$location/strace_run.sh $cpu_folder $strace_args
+            		return_code=$?
+        	done
+        	echo 
+	done
 done
-
